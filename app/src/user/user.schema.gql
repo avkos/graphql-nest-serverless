@@ -1,0 +1,35 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int!
+  name: String!
+  dob: DateTime
+  address: String
+  description: String
+  imageUrl: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type UserSearchResult {
+  total: Int!
+  list: [User!]!
+}
+
+type Query {
+  getUser(id: Int!): User!
+  getAllUsers(skip: Int!, take: Int!, searchText: String!): UserSearchResult!
+}
+
+type Mutation {
+  createUser(dob: String!, imageUrl: String!, description: String!, address: String!, name: String!): User!
+  updateUser(dob: String!, imageUrl: String!, description: String!, address: String!, name: String!, id: Int!): User!
+  deleteUser(id: Int!): Boolean!
+}

@@ -1,0 +1,73 @@
+{
+  "name": "graphql-nest-serverless",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "yarn prebuild && tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && npm run build",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.13.2",
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/config": "^1.1.5",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/graphql": "^9.1.2",
+    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/typeorm": "^8.0.2",
+    "apollo-server-express": "^3.5.0",
+    "aws-lambda": "^1.0.7",
+    "aws-serverless-express": "^3.4.0",
+    "graphql": "^15",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.12",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.3.3",
+    "typeorm": "^0.2.41"
+  },
+  "devDependencies": {
+    "@apollo/gateway": "^0.45.0",
+    "@nestjs/testing": "^6.0.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.13",
+    "@types/node": "^10.12.18",
+    "@types/supertest": "^2.0.7",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3",
+    "supertest": "^3.4.1",
+    "ts-jest": "^23.10.5",
+    "ts-morph": "^13.0.2",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
+    "tslint": "5.12.1",
+    "typescript": "^4.5.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
