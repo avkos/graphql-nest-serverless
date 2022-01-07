@@ -7,7 +7,7 @@ chmod +x deploy.sh
 # Run locally
 ### 1 Start DB in docker
 ```
-docker compose up
+docker-compose up
 ```
 ![Start DB in docker](./gif/docker.gif)
 ### 2 Start application and check location endpoint
