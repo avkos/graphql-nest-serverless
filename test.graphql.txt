@@ -1,0 +1,63 @@
+# Write your query or mutation here
+# mutation {
+#     createUser(
+#       name:"seconddaaasdasasdaasdassdd",
+#       description:"desc2asdasdasdaaasdsdsd",
+#       address:"addr2",
+#       imageUrl:"imageUrl2",
+#       dob:"1986-12-02 00:00:00"){
+#     id
+#     name
+#     description
+#     address
+#     imageUrl
+#     dob
+#   }
+# }
+#  mutation {
+#     updateUser(
+#       id: 2,
+#       name:"second-2",
+#       description:"desc222",
+#       address:"addr23",
+#       imageUrl:"imageUrl232",
+#       dob:"1986-11-02 00:00:00"){
+#     id
+#     name
+#     description
+#     address
+#     imageUrl
+#     dob
+#   }
+# }
+# mutation {
+#     deleteUser(id: 2)
+# }
+# {
+#   getUser(id:2){
+#     id
+#     name
+#     description
+#     address
+#     imageUrl
+#     dob
+#     createdAt
+#     updatedAt
+#   }
+# }
+{
+  getAllUsers(searchText:"",take:2,  skip:0){
+    list{
+      id
+      name
+      description
+      address
+      imageUrl
+      dob
+      createdAt
+      updatedAt
+    }
+    total
+  }
+}
+
